@@ -5,9 +5,13 @@ if ENV['COVERAGE'] == 'true' && RUBY_ENGINE == 'ruby' && RUBY_VERSION == '2.4.1'
   end
 end
 
+require 'pry'
+
 begin
   require 'byebug'
 rescue LoadError; end
+
+require 'pathname'
 
 SPEC_ROOT = Pathname(__dir__)
 

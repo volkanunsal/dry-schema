@@ -168,24 +168,6 @@ RSpec.describe 'Predicates: Empty' do
           end
         end
       end
-
-      context 'with filled' do
-        it "should raise error" do
-          pending "Detect senseless rules"
-          expect { Dry::Schema.define do
-            required(:foo).filled(:empty?)
-          end }.to raise_error Dry::Schema::InvalidSchemaError
-        end
-      end
-
-      context 'with maybe' do
-        it "should raise error" do
-          pending "Detect senseless rules"
-          expect { Dry::Schema.define do
-            required(:foo).maybe(:empty?)
-          end }.to raise_error Dry::Schema::InvalidSchemaError
-        end
-      end
     end
 
     context 'with optional' do
@@ -242,24 +224,6 @@ RSpec.describe 'Predicates: Empty' do
           it 'is not successful' do
             expect(result).to be_failing ['must be empty']
           end
-        end
-      end
-
-      context 'with filled' do
-        it "should raise error" do
-          pending "Detect senseless rules"
-          expect { Dry::Schema.define do
-            optional(:foo).filled(:empty?)
-          end }.to raise_error Dry::Schema::InvalidSchemaError
-        end
-      end
-
-      context 'with maybe' do
-        it "should raise error" do
-          pending "Detect senseless rules"
-          expect { Dry::Schema.define do
-            optional(:foo).maybe(:empty?)
-          end }.to raise_error Dry::Schema::InvalidSchemaError
         end
       end
     end

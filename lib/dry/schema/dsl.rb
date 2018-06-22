@@ -37,10 +37,12 @@ module Dry
       end
 
       def required(name, type = Types::Any, &block)
+        type = type.with(meta: { omittable: true })
         key(name, type: type, macro: Macros::Required, &block)
       end
 
       def optional(name, type = Types::Any, &block)
+        type = type.with(meta: { omittable: true })
         key(name, type: type, macro: Macros::Optional, &block)
       end
 

@@ -14,6 +14,10 @@ group :test do
   gem 'dry-struct', require: false
 end
 
+group :development, :test do
+  gem 'pry'
+end
+
 group :tools do
   gem 'byebug', platform: :mri
 end
