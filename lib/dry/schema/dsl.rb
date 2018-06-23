@@ -45,7 +45,12 @@ module Dry
       end
 
       def key(name, type:, macro:, &block)
-        types[name] = type.with(meta: { omittable: true })
+        types[name] = case type
+                      when Symbol
+                        Dry::Types[type.to_s]
+                      else
+                        type.with(meta: { omittable: true })
+                      end
         macro = macro.new(name: name, compiler: compiler)
         macro.value(&block) if block
         macros << macro
