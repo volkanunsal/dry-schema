@@ -46,8 +46,8 @@ module Dry
 
       def key(name, type:, macro:, &block)
         types[name] = case type
-                      when Symbol
-                        Dry::Types[type.to_s]
+                      when ::Symbol
+                        ::DSL::Types[type.to_s]
                       else
                         type.with(meta: { omittable: true })
                       end
